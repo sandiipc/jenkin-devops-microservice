@@ -12,12 +12,14 @@ node {
 //DECLARATIVE
 pipeline {
 	//agent any
-	agent {docker {image 'maven:3.6.3'} }
+	//agent {docker {image 'maven:3.6.3'} }
+	agent {docker {image 'node:latest'} }
 	stages {
 		stage ('Build') {
 			steps {
-				sh "chmod +x -R ${env.WORKSPACE}"
-				sh "./shcmd.sh"
+				//sh "chmod +x -R ${env.WORKSPACE}"
+				//sh "./shcmd.sh"
+				sh "node --version"
 				echo "Build"
 			}
 		}
