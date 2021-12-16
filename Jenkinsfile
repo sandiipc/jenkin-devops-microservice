@@ -14,12 +14,19 @@ pipeline {
 	agent any
 	//agent {docker {image 'maven:3.6.3'} }
 	//agent {docker {image 'node:latest'} }
+	environment {
+		dockerHome = tool 'jenkinsDocker'
+		mavenHome = tool 'jenkinsMaven'
+		PATH = "$dockerHome/bin:$mavenHome/bin:$PATH"
+	}
 	stages {
 		stage ('Build') {
 			steps {
 				//sh "chmod +x -R ${env.WORKSPACE}"
 				//sh "./shcmd.sh"
 				//sh "node --version"
+				sh "mvn --version"
+				sh "docker version"
 				echo "Build"
 				echo "PATH - $PATH"
 				echo "BUILD_NUMBER - $env.BUILD_NUMBER"
