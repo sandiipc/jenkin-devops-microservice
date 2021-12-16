@@ -16,8 +16,8 @@ pipeline {
 	stages {
 		stage ('Build') {
 			steps {
-				sh "chmod +x"
-				sh "maven --version"
+				//sh "chmod +x"
+				sh "mvn --version"
 				echo "Build"
 			}
 		}
