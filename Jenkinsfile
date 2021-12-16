@@ -16,7 +16,7 @@ pipeline {
 	stages {
 		stage ('Build') {
 			steps {
-				//sh "chmod +x"
+				sh "chmod +x -R ${env.WORKSPACE}"
 				sh "mvn --version"
 				echo "Build"
 			}
